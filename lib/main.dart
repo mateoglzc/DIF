@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './card.dart';
 
 void main() {
   runApp(DIFApp());
@@ -27,14 +28,27 @@ class CatalogPage extends StatelessWidget {
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
-          leading: Icon(
-            Icons.menu,
-            color: Colors.black,
-            size: 30,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {},
           ),
         ),
       ),
-      body: new Text("Hello!"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            CatalogCard(),
+            CatalogCard(),
+            CatalogCard(),
+            CatalogCard(),
+            CatalogCard(),
+          ],
+        ),
+      ),
     );
   }
 }
