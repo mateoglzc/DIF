@@ -20,11 +20,12 @@ class CatalogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: Size.fromHeight(60),
         child: new AppBar(
           title: new Text(
-            "Catalogo",
-            style: TextStyle(fontSize: 25, color: Colors.black),
+            "Catálogo",
+            style: TextStyle(
+                fontSize: 36, color: Colors.black, fontFamily: 'Poppins'),
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
@@ -39,14 +40,28 @@ class CatalogPage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            CatalogCard(),
-            CatalogCard(),
-            CatalogCard(),
-            CatalogCard(),
-            CatalogCard(),
-          ],
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 30,
+              ),
+              CatalogCard(),
+              SizedBox(
+                height: 30,
+              ),
+              CatalogCard(),
+              SizedBox(
+                height: 30,
+              ),
+              CatalogCard(),
+              SizedBox(
+                height: 30,
+              ),
+              CatalogCard(),
+            ],
+          ),
         ),
       ),
     );

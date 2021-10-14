@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'service-card.dart';
 
 class ServicePage extends StatelessWidget {
   const ServicePage({Key? key}) : super(key: key);
@@ -7,7 +8,10 @@ class ServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Service"),
+        title: Text(
+          "Service",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         leading: IconButton(
@@ -21,7 +25,15 @@ class ServicePage extends StatelessWidget {
           },
         ),
       ),
-      body: Text("Service Page"),
+      body: SingleChildScrollView(
+        child: Stack(
+          alignment: AlignmentDirectional.bottomCenter,
+          children: [
+            Image.asset('assets/public-pool.jpg'),
+            ServiceCard(),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -8,7 +8,7 @@ class CatalogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        color: Colors.black12,
+        color: Colors.blueGrey[200],
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
@@ -18,8 +18,7 @@ class CatalogCard extends StatelessWidget {
               Stack(
                 children: [
                   Ink.image(
-                    image: NetworkImage(
-                        'https://images.unsplash.com/photo-1633749130853-2f2057865bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80'),
+                    image: AssetImage('assets/public-pool.jpg'),
                     height: 200,
                     fit: BoxFit.cover,
                   ),
@@ -40,7 +39,10 @@ class CatalogCard extends StatelessWidget {
                       },
                       child: Text(
                         "Hiking",
-                        style: TextStyle(color: Colors.black, fontSize: 24),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontFamily: 'Poppins'),
                       ))
                 ],
               )
