@@ -30,7 +30,9 @@ class ServicePage extends StatelessWidget {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             Image.asset('assets/public-pool.jpg'),
-            ServiceCard(),
+            ServiceCard(
+              contacts: ["Contact 1", "Contact 2", "Contact 3"],
+            ),
           ],
         ),
       ),

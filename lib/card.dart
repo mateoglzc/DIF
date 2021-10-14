@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'service_page.dart';
 
 class CatalogCard extends StatelessWidget {
-  const CatalogCard({Key? key}) : super(key: key);
+  final String service;
+  final String imagePath;
+  const CatalogCard(
+      {this.service = "Default Service",
+      this.imagePath = "assets/public-pool.jpg"});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class CatalogCard extends StatelessWidget {
               Stack(
                 children: [
                   Ink.image(
-                    image: AssetImage('assets/public-pool.jpg'),
+                    image: AssetImage(imagePath),
                     height: 200,
                     fit: BoxFit.cover,
                   ),
@@ -38,7 +42,7 @@ class CatalogCard extends StatelessWidget {
                                 builder: (context) => ServicePage()));
                       },
                       child: Text(
-                        "Hiking",
+                        service,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 24,

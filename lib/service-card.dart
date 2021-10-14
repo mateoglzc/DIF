@@ -1,11 +1,35 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'contact.dart';
+import 'location.dart';
 
 class ServiceCard extends StatelessWidget {
-  ServiceCard({Key? key}) : super(key: key);
+  final String description;
+  final String service;
+  final String openTime;
+  final String closeTime;
+  final List<String> contacts;
 
-  String description =
-      "blah blah blah blah blah blah blah blah blah blah blah blah blah blahj blahj blab lblh baldj l h lkjd k kiadkl  hellklo my  name is matt and i like chocolate hello im dead";
+  ServiceCard({
+    this.service = "Default Service",
+    this.description = "Default Description",
+    this.openTime = "00:00",
+    this.closeTime = "00:00",
+    this.contacts = const ["Default Contact"],
+  });
+
+  List<Widget> _buildUserGroups(BuildContext context, List<String> contacts) {
+    List<ContactLine> userGroup = [];
+
+    for (var i = 0; i < contacts.length; i++) {
+      userGroup.add(ContactLine(
+        contact: contacts[i],
+      ));
+    }
+
+    return userGroup;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +44,7 @@ class ServiceCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Public Pool',
+                service,
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 30,
@@ -28,7 +52,7 @@ class ServiceCard extends StatelessWidget {
                 ),
               ),
               Text(
-                "Open from 11am to 8pm",
+                "Open from $openTime to $closeTime",
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
                 ),
@@ -38,8 +62,10 @@ class ServiceCard extends StatelessWidget {
                 description,
                 style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
               ),
-              SizedBox(height: 20),
-              ContactLine(),
+              SizedBox(height: 10),
+              LocationLine(),
+              SizedBox(height: 10),
+              ..._buildUserGroups(context, contacts),
             ],
           ),
         ),

@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 
 class ContactLine extends StatelessWidget {
-  ContactLine({Key? key}) : super(key: key);
+  final String contact;
+  ContactLine({this.contact = "Default Name"});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Icon(Icons.person_sharp),
-        Image.asset(
-          'face-3.jpg',
-          height: 50,
-          width: 50,
+        Icon(Icons.person_sharp),
+        // ClipOval(
+        //   child: Image.asset(
+        //     'face-2.jpg',
+        //     height: 120,
+        //     width: 120,
+        //   ),
+        // ),
+        SizedBox(
+          width: 10,
         ),
-        Text("Señora de la alberca"),
+        Text(contact),
       ],
     );
   }
