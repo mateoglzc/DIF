@@ -1,21 +1,42 @@
+// import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import './card.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(DIFApp());
 }
 
 // Create App
 class DIFApp extends StatelessWidget {
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: new CatalogPage(),
+      home: FutureBuilder(
+        future: _fbApp,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            print("You have an error: ${snapshot.error.toString()}");
+            return Text("Something went wrong!");
+          } else if (snapshot.hasData) {
+            return CatalogPage();
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
     );
   }
 }
 
 class CatalogPage extends StatelessWidget {
+  // final db =
+  // (FirebaseDatabase.instance.reference().child("Services")).toString();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -59,7 +80,7 @@ class CatalogPage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              CatalogCard(),
+              // Text(db),
             ],
           ),
         ),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71626212368",
+    "project_id": "dif-app-c6944",
+    "storage_bucket": "dif-app-c6944.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71626212368:android:7f6ff91433a0fc51abf695",
+        "android_client_info": {
+          "package_name": "com.example.dif"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71626212368-vlmf9nsueffil1hkhij8rigg2b6i5pub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnaUCXOYzGyKIU0zp9j8UwEm0-elROSO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71626212368-vlmf9nsueffil1hkhij8rigg2b6i5pub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
