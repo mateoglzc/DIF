@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,12 +34,55 @@ class DIFApp extends StatelessWidget {
   }
 }
 
-class CatalogPage extends StatelessWidget {
-  final DatabaseReference db =
-      FirebaseDatabase.instance.reference().child("Services");
+class CatalogPage extends StatefulWidget {
+  const CatalogPage({Key? key}) : super(key: key);
+
+  @override
+  _CatalogPageState createState() => _CatalogPageState();
+}
+
+class _CatalogPageState extends State<CatalogPage> {
+  final DatabaseReference _db = FirebaseDatabase.instance.reference();
+  late StreamSubscription _servicesStream;
+  late List<String> _servicesId;
+  late Map<String, dynamic> _services;
+  Column serviceCards = Column(
+    children: [],
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _activateListeners();
+  }
+
+  void _activateListeners() {
+    _servicesStream = _db.child("Services").onValue.listen((event) {
+      final s = event.snapshot.value;
+      setState(() {
+        _servicesId = s.keys.toList();
+        _services = s;
+      });
+    });
+  }
+
+  void addServiceCards() {
+    setState(() {
+      for (var i = 0; i < _services.length; i++) {
+        serviceCards.children.add(CatalogCard(
+          service: _services[_servicesId[i]]['name'],
+          imagePath: _services[_servicesId[i]]['image'],
+        ));
+        serviceCards.children.add(SizedBox(
+          height: 10,
+        ));
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    addServiceCards();
     return new Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
@@ -63,28 +107,15 @@ class CatalogPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 30,
-              ),
-              CatalogCard(),
-              SizedBox(
-                height: 30,
-              ),
-              CatalogCard(),
-              SizedBox(
-                height: 30,
-              ),
-              CatalogCard(),
-              SizedBox(
-                height: 30,
-              ),
-              Text(db.toString()),
-            ],
-          ),
+          child: serviceCards,
         ),
       ),
     );
+  }
+
+  @override
+  void deactivate() {
+    _servicesStream.cancel();
+    super.deactivate();
   }
 }
