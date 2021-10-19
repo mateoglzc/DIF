@@ -7,6 +7,7 @@ class ServiceCard extends StatelessWidget {
   final String service;
   final String openTime;
   final String closeTime;
+  final String address;
   final List<String> contacts;
 
   ServiceCard({
@@ -14,6 +15,7 @@ class ServiceCard extends StatelessWidget {
     this.description = "Default Description",
     this.openTime = "00:00",
     this.closeTime = "00:00",
+    this.address = "Default Address",
     this.contacts = const ["Default Contact"],
   });
 
@@ -61,7 +63,9 @@ class ServiceCard extends StatelessWidget {
                 style: TextStyle(fontFamily: 'Poppins', fontSize: 16),
               ),
               SizedBox(height: 10),
-              LocationLine(),
+              LocationLine(
+                address: address,
+              ),
               SizedBox(height: 10),
               ..._buildUserGroups(context, contacts),
             ],

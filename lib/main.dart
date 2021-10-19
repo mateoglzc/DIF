@@ -44,10 +44,14 @@ class CatalogPage extends StatefulWidget {
 class _CatalogPageState extends State<CatalogPage> {
   final DatabaseReference _db = FirebaseDatabase.instance.reference();
   late StreamSubscription _servicesStream;
-  late List<String> _servicesId;
-  late Map<String, dynamic> _services;
+  List<String> _servicesId = [];
+  Map<String, dynamic> _services = new Map<String, dynamic>();
   Column serviceCards = Column(
-    children: [],
+    children: [
+      SizedBox(
+        height: 10,
+      ),
+    ],
   );
 
   @override
@@ -71,7 +75,11 @@ class _CatalogPageState extends State<CatalogPage> {
       for (var i = 0; i < _services.length; i++) {
         serviceCards.children.add(CatalogCard(
           service: _services[_servicesId[i]]['name'],
-          imagePath: _services[_servicesId[i]]['image'],
+          // imagePath: _services[_servicesId[i]]['image'],
+          description: _services[_servicesId[i]]['description'],
+          openTIme: _services[_servicesId[i]]['openTime'],
+          closeTIme: _services[_servicesId[i]]['closeTime'],
+          address: _services[_servicesId[i]]['address'],
         ));
         serviceCards.children.add(SizedBox(
           height: 10,
@@ -94,14 +102,6 @@ class _CatalogPageState extends State<CatalogPage> {
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black,
-              size: 30,
-            ),
-            onPressed: () {},
-          ),
         ),
       ),
       body: SingleChildScrollView(

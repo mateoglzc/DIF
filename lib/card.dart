@@ -4,9 +4,18 @@ import 'service_page.dart';
 class CatalogCard extends StatelessWidget {
   final String service;
   final String imagePath;
-  const CatalogCard(
-      {this.service = "Default Service",
-      this.imagePath = "assets/public-pool.jpg"});
+  final String description;
+  final String openTIme;
+  final String closeTIme;
+  final String address;
+  const CatalogCard({
+    this.service = "Default Service",
+    this.imagePath = "assets/public-pool.jpg",
+    this.description = "Default Description",
+    this.openTIme = "00:00",
+    this.closeTIme = "00:00",
+    this.address = "Av. Default 1",
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +30,7 @@ class CatalogCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Ink.image(
-                    image: AssetImage(imagePath),
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
+                  Image.asset(imagePath),
                 ],
               ),
               SizedBox(
@@ -39,7 +44,13 @@ class CatalogCard extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ServicePage()));
+                                builder: (context) => ServicePage(
+                                      name: service,
+                                      description: description,
+                                      closeTime: closeTIme,
+                                      openTime: openTIme,
+                                      address: address,
+                                    )));
                       },
                       child: Text(
                         service,
