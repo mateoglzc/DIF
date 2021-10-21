@@ -71,11 +71,12 @@ class _CatalogPageState extends State<CatalogPage> {
   }
 
   void addServiceCards() {
+    // print(_services[_servicesId[]]['image']);
     setState(() {
       for (var i = 0; i < _services.length; i++) {
         serviceCards.children.add(CatalogCard(
           service: _services[_servicesId[i]]['name'],
-          // imagePath: _services[_servicesId[i]]['image'],
+          imagePath: _services[_servicesId[i]]['image'],
           description: _services[_servicesId[i]]['description'],
           openTIme: _services[_servicesId[i]]['openTime'],
           closeTIme: _services[_servicesId[i]]['closeTime'],
@@ -95,12 +96,13 @@ class _CatalogPageState extends State<CatalogPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: new AppBar(
+          elevation: 0,
           title: new Text(
             "Catálogo",
             style: TextStyle(
                 fontSize: 36, color: Colors.black, fontFamily: 'Poppins'),
           ),
-          centerTitle: true,
+          // centerTitle: true,
           backgroundColor: Colors.white,
         ),
       ),
@@ -110,6 +112,7 @@ class _CatalogPageState extends State<CatalogPage> {
           child: serviceCards,
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 

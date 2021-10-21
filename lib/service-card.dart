@@ -35,7 +35,7 @@ class ServiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        color: Colors.blueGrey[200],
+        color: Colors.blue[300],
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Padding(
@@ -43,6 +43,13 @@ class ServiceCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Card(
+                clipBehavior: Clip.antiAlias,
+                color: Colors.blue[300],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Image.asset("assets/public-pool.jpg"),
+              ),
               Text(
                 service,
                 style: TextStyle(

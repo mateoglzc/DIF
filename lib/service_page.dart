@@ -19,12 +19,13 @@ class ServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Service",
-          style: TextStyle(color: Colors.black),
-        ),
+        // title: Text(
+        //   "Service",
+        //   style: TextStyle(color: Colors.black),
+        // ),
+        elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.lightBlue[100],
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -37,20 +38,27 @@ class ServicePage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset('assets/public-pool.jpg'),
-            ServiceCard(
-              service: name,
-              description: description,
-              openTime: openTime,
-              closeTime: closeTime,
-              address: address,
-              contacts: ["Contact 1", "Contact 2", "Contact 3"],
-            ),
-          ],
+        child: Center(
+          child:
+              // ClipRRect(
+              //   borderRadius: BorderRadius.circular(200),
+              //   child: Image.asset(
+              //     "assets/public-pool.jpg",
+              //     height: 400,
+              //     width: 400,
+              //   ),
+              // ),
+              ServiceCard(
+            service: name,
+            description: description,
+            openTime: openTime,
+            closeTime: closeTime,
+            address: address,
+            contacts: ["Contact 1", "Contact 2", "Contact 3"],
+          ),
         ),
       ),
+      backgroundColor: Colors.lightBlue[100],
     );
   }
 }

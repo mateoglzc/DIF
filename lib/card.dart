@@ -21,7 +21,7 @@ class CatalogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        color: Colors.blueGrey[200],
+        color: Colors.lightBlue[100],
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
@@ -30,7 +30,9 @@ class CatalogCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset(imagePath),
+                  Image(
+                    image: AssetImage(imagePath),
+                  ),
                 ],
               ),
               SizedBox(
