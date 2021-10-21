@@ -9,6 +9,9 @@ class ServiceCard extends StatelessWidget {
   final String closeTime;
   final String address;
   final List<String> contacts;
+  final String imagePath;
+  final String phoneNumber;
+  final String openDays;
 
   ServiceCard({
     this.service = "Default Service",
@@ -17,6 +20,9 @@ class ServiceCard extends StatelessWidget {
     this.closeTime = "00:00",
     this.address = "Default Address",
     this.contacts = const ["Default Contact"],
+    this.imagePath = "assets/public-pool.jpg",
+    this.phoneNumber = "55 0000 0000",
+    this.openDays = "Lunes a Viernes",
   });
 
   List<Widget> _buildUserGroups(BuildContext context, List<String> contacts) {
@@ -48,7 +54,9 @@ class ServiceCard extends StatelessWidget {
                 color: Colors.blue[300],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                child: Image.asset("assets/public-pool.jpg"),
+                child: Image.asset(
+                  imagePath,
+                ),
               ),
               Text(
                 service,
@@ -59,7 +67,7 @@ class ServiceCard extends StatelessWidget {
                 ),
               ),
               Text(
-                "Open from $openTime to $closeTime",
+                "Abierto de $openDays de $openTime a $closeTime",
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
                 ),
@@ -75,6 +83,13 @@ class ServiceCard extends StatelessWidget {
               ),
               SizedBox(height: 10),
               ..._buildUserGroups(context, contacts),
+              Text(
+                "Teléfono: $phoneNumber",
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 15,
+                ),
+              )
             ],
           ),
         ),

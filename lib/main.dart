@@ -81,6 +81,8 @@ class _CatalogPageState extends State<CatalogPage> {
           openTIme: _services[_servicesId[i]]['openTime'],
           closeTIme: _services[_servicesId[i]]['closeTime'],
           address: _services[_servicesId[i]]['address'],
+          phoneNumber: _services[_servicesId[i]]['phoneNumber'],
+          openDays: _services[_servicesId[i]]['openDays'],
         ));
         serviceCards.children.add(SizedBox(
           height: 10,

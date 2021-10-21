@@ -7,22 +7,24 @@ class ServicePage extends StatelessWidget {
   final String closeTime;
   final String openTime;
   final String address;
+  final String imagePath;
+  final String phoneNumber;
+  final String openDays;
   const ServicePage({
     this.description = "Default Description",
     this.name = "Default Name",
     this.closeTime = "00:00",
     this.openTime = "00:00",
     this.address = "Service Page",
+    this.imagePath = "assets/public-pool.jpg",
+    this.phoneNumber = "55 0000 0000",
+    this.openDays = "Lunes a Viernes",
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: Text(
-        //   "Service",
-        //   style: TextStyle(color: Colors.black),
-        // ),
         elevation: 0,
         centerTitle: true,
         backgroundColor: Colors.lightBlue[100],
@@ -39,22 +41,15 @@ class ServicePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Center(
-          child:
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(200),
-              //   child: Image.asset(
-              //     "assets/public-pool.jpg",
-              //     height: 400,
-              //     width: 400,
-              //   ),
-              // ),
-              ServiceCard(
+          child: ServiceCard(
             service: name,
             description: description,
             openTime: openTime,
             closeTime: closeTime,
             address: address,
-            contacts: ["Contact 1", "Contact 2", "Contact 3"],
+            openDays: openDays,
+            phoneNumber: phoneNumber,
+            imagePath: imagePath,
           ),
         ),
       ),

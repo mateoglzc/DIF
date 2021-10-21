@@ -8,6 +8,8 @@ class CatalogCard extends StatelessWidget {
   final String openTIme;
   final String closeTIme;
   final String address;
+  final String phoneNumber;
+  final String openDays;
   const CatalogCard({
     this.service = "Default Service",
     this.imagePath = "assets/public-pool.jpg",
@@ -15,6 +17,8 @@ class CatalogCard extends StatelessWidget {
     this.openTIme = "00:00",
     this.closeTIme = "00:00",
     this.address = "Av. Default 1",
+    this.phoneNumber = "55 0000 0000",
+    this.openDays = "Lunes a Viernes",
   });
 
   @override
@@ -31,8 +35,9 @@ class CatalogCard extends StatelessWidget {
               Stack(
                 children: [
                   Image(
-                    image: AssetImage(imagePath),
-                  ),
+                      image: AssetImage(
+                    imagePath,
+                  )),
                 ],
               ),
               SizedBox(
@@ -52,6 +57,9 @@ class CatalogCard extends StatelessWidget {
                                       closeTime: closeTIme,
                                       openTime: openTIme,
                                       address: address,
+                                      imagePath: imagePath,
+                                      phoneNumber: phoneNumber,
+                                      openDays: openDays,
                                     )));
                       },
                       child: Text(

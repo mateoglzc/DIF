@@ -9,17 +9,12 @@ class LocationLine extends StatelessWidget {
     return Row(
       children: [
         Icon(Icons.location_on_rounded),
-        // ClipOval(
-        //   child: Image.asset(
-        //     'face-2.jpg',
-        //     height: 120,
-        //     width: 120,
-        //   ),
-        // ),
         SizedBox(
           width: 10,
         ),
-        Text(address),
+        Flexible(
+          child: Text(address),
+        ),
       ],
     );
   }
