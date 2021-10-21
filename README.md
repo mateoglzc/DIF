@@ -3,7 +3,6 @@
 
 # DIF
 
-Matt's Branch
 Aplicación para desplegar los servicios del DIF Huixquilucan.
 
 ## Integrantes
