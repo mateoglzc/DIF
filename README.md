@@ -34,16 +34,26 @@ El DIF nos contrató para dar una solución implementando una aplicación para q
 - Posibles ataques a nuestro servidor, lo cual puede crear que nuestro servidor quede inhabilitado por un periodo de tiempo o que se propague algún tipo de malware. 
 
 ### Diagrama de la arquitectura del app
-
+<img width="599" alt="Screen Shot 2021-10-23 at 11 06 42" src="https://user-images.githubusercontent.com/57368415/138563584-4b0ffbe5-dd01-4fda-a51c-f7560f2346af.png">
 
 ### Diseño inicial de las interfaces del usuario
-
+<img width="571" alt="Screen Shot 2021-10-23 at 11 06 52" src="https://user-images.githubusercontent.com/57368415/138563588-b370b87a-aba0-4b57-864c-442a71e43070.png">
 
 ### Diagramas de secuencia
 #### Aplicación
 
+<img width="600" alt="Screen Shot 2021-10-23 at 11 07 02" src="https://user-images.githubusercontent.com/57368415/138563599-bf3a375f-2e61-465c-806e-70150083e88c.png">
+
 
 #### Usuario
+<img width="599" alt="Screen Shot 2021-10-23 at 11 07 11" src="https://user-images.githubusercontent.com/57368415/138563595-b5a63188-c71d-4957-ac35-97cd48365e7c.png">
+
+
+
+
+
+
+
 
 
 
